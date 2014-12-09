@@ -96,7 +96,12 @@ typedef struct hwc_layer {
              * HWComposer implementation may assume that the contents of the buffer have
              * not changed. */
             buffer_handle_t handle;
-
+            
+            #ifdef QCOM_HARDWARE
+            /* source transform of the buffer */
+            uint32_t sourceTransform;
+            #endif
+            
             /* transformation to apply to the buffer during composition */
             uint32_t transform;
 
